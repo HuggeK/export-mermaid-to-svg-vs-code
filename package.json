@@ -1,0 +1,31 @@
+{
+  "name": "mermaid-task-button",
+  "displayName": "Mermaid Task Button",
+  "description": "Editor title-bar button to export the open .mmd or .md file's Mermaid diagrams to SVG, in any folder.",
+  "version": "0.0.5",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mermaidTaskButton.export",
+        "title": "Export Mermaid to SVG",
+        "icon": "$(file-media)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "mermaidTaskButton.export",
+          "when": "resourceExtname == .mmd || resourceExtname == .md || activeWebviewPanelId == 'markdown.preview' || activeCustomEditorId == 'vscode.markdown.preview.editor'",
+          "group": "navigation"
+        }
+      ]
+    }
+  }
+}
